@@ -1,0 +1,3 @@
+SOURCE_URL=https://github.com/psi-4ward/psitransfer/releases/download/1.2.0/psitransfer-1.2.0.tar.gz
+SOURCE_SUM=225f12d5c9aa7b6fdde28d4b648c9cd703005b70e20c9e54572abeeacac0d263
+SOURCE_SUM_PRG=sha256sum
