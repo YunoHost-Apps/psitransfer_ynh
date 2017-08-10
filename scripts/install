@@ -1,0 +1,172 @@
+#!/bin/bash
+
+#=================================================
+# GENERIC STARTING
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# MANAGE FAILURE OF THE SCRIPT
+#=================================================
+
+ynh_abort_if_errors	# Active trap pour arrêter le script si une erreur est détectée.
+
+#=================================================
+# RETRIEVE ARGUMENTS FROM THE MANIFEST
+#=================================================
+
+domain=$YNH_APP_ARG_DOMAIN
+is_public=$YNH_APP_ARG_IS_PUBLIC
+path_url=$YNH_APP_ARG_PATH
+admin_pass=$YNH_APP_ARG_PASSWORD
+
+app=$YNH_APP_INSTANCE_NAME
+
+#=================================================
+# CHECK IF THE APP CAN BE INSTALLED WITH THIS ARGS
+#=================================================
+
+if sudo yunohost domain list | grep -q $domain	# Vérifie la liste des domaines
+then	# Si le domaine existe dans Yunohost
+	if sudo yunohost app map | grep -q $domain	# Vérifie la liste des apps par domaine
+	then 	# Si une app est installée sur ce domaine.
+		WARNING echo "An app is already installed on the domain $domain. cryptpad needs a whole domain or subdomain to himself."
+	fi
+fi
+
+path_url=$(ynh_normalize_url_path $path_url)	# Check and normalize path
+CHECK_DOMAINPATH	# Vérifie la disponibilité du path et du domaine.
+CHECK_FINALPATH	# Vérifie que le dossier de destination n'est pas déjà utilisé.
+
+#=================================================
+# STORE SETTINGS FROM MANIFEST
+#=================================================
+
+ynh_app_setting_set $app domain "$domain"
+ynh_app_setting_set $app is_public "$is_public"
+ynh_app_setting_set $app path_url "$path_url"
+
+#=================================================
+# STANDARD MODIFICATIONS
+#=================================================
+# FIND AND OPEN A PORT
+#=================================================
+
+port=$(ynh_find_port 8900)	# Cherche un port libre.
+ynh_app_setting_set $app port $port
+
+#=================================================
+# INSTALL NODEJS
+#=================================================
+
+ynh_install_nodejs $NODEJS_VERSION
+
+#=================================================
+# CREATE DEDICATED USER
+#=================================================
+
+ynh_system_user_create $app
+
+#=================================================
+# SPECIFIC SETUP
+#=================================================
+# HANDLE LOG FILES AND LOGROTATE
+#=================================================
+
+# Créer le dossier de log
+sudo mkdir -p /var/log/$app
+sudo touch /var/log/$app/$app.log
+sudo chown $app -R /var/log/$app
+
+# Setup logrotate
+ynh_use_logrotate
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+
+final_path=/var/www/$app
+ynh_app_setting_set $app final_path $final_path
+ynh_setup_source $final_path
+
+# Set files ownership during installation
+sudo chown $app: $final_path -R
+sudo chmod 755 $final_path -R
+
+#=================================================
+# Modify Nginx configuration file and copy it to Nginx conf directory
+#=================================================
+
+ynh_nginx_config
+
+#=================================================
+# ADD SYSTEMD SERVICE
+#=================================================
+
+ynh_replace_string "__NODE__" "$nodejs_path" "../conf/systemd.service"
+ynh_replace_string "__NODEJS__" "$nodejs_use_version" "../conf/systemd.service"
+ynh_replace_string "__ENV_PATH__" "$PATH" "../conf/systemd.service"
+ynh_systemd_config
+
+
+#=================================================
+# INSTALL PSITRANSFER
+#=================================================
+
+script_dir="$PWD"
+pushd "$final_path"
+sudo chown -R $app: $final_path
+sudo_path npm install --production
+sudo su -l $app -s /bin/bash -c "cd $final_path && env PATH=$PATH bower install"
+popd
+
+#=================================================
+# CONFIGURE APP.JS	
+#=================================================
+
+# Copy default configuration file
+sudo mv "../conf/config.js" "$final_path/config.production.js"
+
+# Set service port
+ynh_replace_string "__ADMINPASS__" "admin_pass" "$final_path/config.production.js"
+
+# Store file checksum to detected user modifications on upgrade
+ynh_store_file_checksum "$final_path/config.production.js"
+
+#=================================================
+# SET FILES OWNERSHIP
+#=================================================
+
+sudo chown -R $app: $final_path
+
+#=================================================
+# ENABLE SERVICE IN ADMIN PANEL
+#=================================================
+
+# Ajoute le service au monitoring de Yunohost.
+sudo yunohost service add $app --log "/var/log/$app/$app.log"
+
+#=================================================
+# START CRYPTPAD IN BACKGROUND
+#=================================================
+
+sudo systemctl start $app
+
+#=================================================
+# SETUP SSOWAT
+#=================================================
+
+if [ $is_public -eq 1 ];
+then
+  ynh_app_setting_set "$app" unprotected_uris "/"
+fi
+
+#=================================================
+# RELOAD NGINX
+#=================================================
+
+sudo systemctl reload nginx
