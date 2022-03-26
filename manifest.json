@@ -6,59 +6,47 @@
         "en": "Transfer files or images without problem",
 	      "fr": "Transférer des fichiers sans soucis"
     },
-    "version": "1.12.0",
+    "version": "1.12.0~ynh1",
     "url": "https://psi.cx/tags/PsiTransfer/",
-    "license": "GPL-3.0",
+    "upstream": {
+        "license": "BSD-2-Clause",
+        "website": "https://psi.cx/tags/PsiTransfer",
+        "admindoc": "https://github.com/psi-4ward/psitransfer/tree/master/docs",
+        "code": "https://github.com/psi-4ward/psitransfer"
+    },
+    "license": "BSD-2-Clause",
     "maintainer": {
         "name": "frju365",
         "email": "win10@tutanota.com",
         "url": "https://github.com/frju365/psitransfer_ynh"
     },
     "requirements": {
-        "yunohost": ">> 2.4.0"
+        "yunohost": ">= 4.3.0"
     },
-    "multi_instance": false,
+    "multi_instance": true,
     "services": [
         "nginx"
     ],
     "arguments": {
-        "install" : [
+        "install": [
             {
                 "name": "domain",
-		            "type": "domain",
-                "ask": {
-                    "en": "Choose a domain name for PSITransfer",
-                    "fr": "Choisissez un nom de domaine pour PSITransfer"
-                },
-                "example": "example.com"
+                "type": "domain"
             },
             {
                 "name": "path",
-		            "type": "path",
-                "ask": {
-                    "en": "Choose a path for PSITransfer, only / is allowed.",
-                    "fr": "Choisissez un chemin pour PSITransfer, seul / est autorisé."
-                },
-                "example": "/",
-                "default": "/"
+                "type": "path",
+                "example": "/psitransfer",
+                "default": "/psitransfer"
             },
             {
                 "name": "is_public",
                 "type": "boolean",
-                "ask": {
-                    "en": "Is it a public site? ",
-                    "fr": "Est-ce un site publique ? "
-                },
                 "default": true
             },
             {
                 "name": "password",
-		            "type": "password",
-                "ask": {
-                    "en": "Choose an admin password.",
-                    "fr": "Choisissez un mot de passe d'administration."
-                },
-                "example": "super_secret_password"
+                "type": "password"
             }
         ]
     }
