@@ -7,10 +7,11 @@ After=network.target
 Type=simple
 User=__APP__
 Group=__APP__
-ExecStartPre=__NODEJS__
-WorkingDirectory=__FINALPATH__
-Environment="PATH=__ENV_PATH__"
-ExecStart=/bin/bash -c 'exec __NODE__ app.js'
+WorkingDirectory=__FINALPATH__/
+Environment="__YNH_NODE_LOAD_PATH__"
+Environment="NODE_ENV=production"
+ExecStart=__YNH_NODE__ app.js
+StandardOutput=append:/var/log/__APP__/__APP__.log
 Restart=always
 
 [Install]
