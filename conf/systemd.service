@@ -1,5 +1,5 @@
 [Unit]
-Description=CryptPad is an encrypted PAD Creator
+Description=__APP__
 After=syslog.target
 After=network.target
 
