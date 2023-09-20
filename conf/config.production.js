@@ -15,7 +15,7 @@ module.exports = {
   "adminPass": "__PASSWORD__",
   "uploadPass": false,
   "baseUrl": '__PATH__',
-  "uploadDir": '__DATADIR__',
+  "uploadDir": '__DATA_DIR__',
   "port": __PORT__,
   "uploadAppPath": '/',
   "maxFileSize": Math.pow(2, 20) * 15,
