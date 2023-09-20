@@ -19,14 +19,14 @@ ynh_app_setting_set --app=$app --key=password --value=$password
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..."
+ynh_script_progression --message="Installing dependencies..." --weight=1
 
 ynh_install_nodejs --nodejs_version=$nodejs_version
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..."
+ynh_script_progression --message="Setting up source files..." --weight=1
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
@@ -59,7 +59,7 @@ yunohost service add $app --description="Transfer files or images" --log="/var/l
 #=================================================
 # INSTALL APP
 #=================================================
-ynh_script_progression --message="Installing $app..."
+ynh_script_progression --message="Installing $app..." --weight=1
 
 pushd $install_dir
  	ynh_use_nodejs
@@ -69,7 +69,7 @@ popd
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..."
+ynh_script_progression --message="Adding a configuration file..." --weight=1
 
 ynh_add_config --template="../conf/config.production.js" --destination="$install_dir/config.production.js"
 
@@ -79,7 +79,7 @@ chown $app:$app "$install_dir/config.production.js"
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..."
+ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
@@ -88,4 +88,4 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed"
+ynh_script_progression --message="Installation of $app completed" --last
