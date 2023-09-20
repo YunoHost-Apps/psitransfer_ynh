@@ -7,7 +7,7 @@
 nodejs_version=12
 
 # dependencies used by the app
-pkg_dependencies=""
+#REMOVEME? pkg_dependencies=""
 
 #=================================================
 # PERSONAL HELPERS
