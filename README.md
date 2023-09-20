@@ -28,6 +28,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 - Password protected download list ([AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard))
 - `/admin` Page lists bucket information, [Screenshot](https://raw.githubusercontent.com/psi-4ward/psitransfer/master/docs/PsiTransfer-Admin.png) (_disabled until you set `adminPass` config value_)
 
+
 **Shipped version:** 2.1.2~ynh1
 
 ## Screenshots
