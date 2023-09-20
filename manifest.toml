@@ -38,6 +38,8 @@ ram.runtime = "50M"
     default = "visitors"
 
     [install.password]
+    help.en = "The password is used to allow access to uploads and admin panel."
+    help.fr = "Le mot de passe est utilisé pour autoriser l'accès aux téléchargements et au panneau d'administration."
     type = "password"
 
 [resources]
