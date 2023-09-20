@@ -10,7 +10,6 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 Environment="__YNH_NODE_LOAD_PATH__"
-Environment="NODE_ENV=production"
 ExecStart=__YNH_NODE__ app.js
 StandardOutput=append:/var/log/__APP__/__APP__.log
 Restart=always
