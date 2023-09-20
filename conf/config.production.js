@@ -18,8 +18,8 @@ module.exports = {
   "uploadDir": '__DATA_DIR__',
   "port": __PORT__,
   "uploadAppPath": '/',
-  "maxFileSize": Math.pow(2, 20) * 15,
-  "maxBucketSize": Math.pow(2, 20) * 20,
+  // "maxFileSize": Math.pow(2, 20) * 15,
+  // "maxBucketSize": Math.pow(2, 20) * 20,
   "mailFrom": "PsiTransfer <psitransfer@__DOMAIN__>"
   // "sslKeyFile": './tmp/cert.key',
   // "sslCertFile": './tmp/cert.pem',
