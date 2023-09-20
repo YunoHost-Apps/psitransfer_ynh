@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # PSITransfer for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/psitransfer.svg)](https://dash.yunohost.org/appci/app/psitransfer) ![](https://ci-apps.yunohost.org/ci/badges/psitransfer.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/psitransfer.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/psitransfer.svg)](https://dash.yunohost.org/appci/app/psitransfer) ![Working status](https://ci-apps.yunohost.org/ci/badges/psitransfer.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/psitransfer.maintain.svg)
+
 [![Install PSITransfer with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=psitransfer)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -35,29 +36,28 @@ It's an alternative to paid services like Dropbox, WeTransfer.
 
 **Shipped version:** 1.12.0~ynh1
 
-
-
 ## Screenshots
 
-![](./doc/screenshots/psitransfer.gif)
+![Screenshot of PSITransfer](./doc/screenshots/psitransfer.gif)
 
 ## Documentation and resources
 
-* Official app website: https://psi.cx/tags/PsiTransfer
-* Official admin documentation: https://github.com/psi-4ward/psitransfer/tree/master/docs
-* Upstream app code repository: https://github.com/psi-4ward/psitransfer
-* YunoHost documentation for this app: https://yunohost.org/app_psitransfer
-* Report a bug: https://github.com/YunoHost-Apps/psitransfer_ynh/issues
+* Official app website: <https://psi.cx/tags/PsiTransfer>
+* Official admin documentation: <https://github.com/psi-4ward/psitransfer/tree/master/docs>
+* Upstream app code repository: <https://github.com/psi-4ward/psitransfer>
+* YunoHost documentation for this app: <https://yunohost.org/app_psitransfer>
+* Report a bug: <https://github.com/YunoHost-Apps/psitransfer_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/psitransfer_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/psitransfer_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade psitransfer -u https://github.com/YunoHost-Apps/psitransfer_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
