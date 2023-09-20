@@ -34,7 +34,7 @@ It's an alternative to paid services like Dropbox, WeTransfer.
 * Explicit named bucket IDs with query param `sid=<myBucketID>`
 
 
-**Shipped version:** 1.12.0~ynh1
+**Shipped version:** 2.1.2~ynh1
 
 ## Screenshots
 
