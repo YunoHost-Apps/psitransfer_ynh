@@ -1,5 +1,5 @@
 [Unit]
-Description=PsiTranfer: transfer files or images
+Description=PsiTranfer: file sharing solution
 Documentation=https://github.com/psi-4ward/psitransfer
 After=syslog.target
 After=network.target
