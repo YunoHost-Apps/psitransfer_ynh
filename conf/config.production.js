@@ -13,7 +13,7 @@ module.exports = {
   },
   "defaultRetention": "3600",
   "adminPass": "__PASSWORD__",
-  "uploadPass": false,
+  "uploadPass": "__PASSWORD__",
   "baseUrl": '__PATH__',
   "uploadDir": '__DATA_DIR__',
   "port": __PORT__,
