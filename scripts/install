@@ -28,23 +28,35 @@ chmod -R o-rwx "$install_dir"
 chown -R $app:$app "$install_dir"
 
 #=================================================
-# NGINX CONFIGURATION
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..."
+ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
+
+# Create a dedicated systemd config
+ynh_add_systemd_config
+
+mkdir -p /var/log/$app
+touch /var/log/$app/$app.log
+chown $app -R /var/log/$app
+
+# Use logrotate to manage application logfile(s)
+ynh_use_logrotate
+
+yunohost service add $app --description="Transfer files or images" --log="/var/log/$app/$app.log"
 
 #=================================================
 # SPECIFIC SETUP
 #=================================================
 # INSTALL APP
 #=================================================
-ynh_script_progression --message="Installing app..."
+ynh_script_progression --message="Installing $app..."
 
-pushd "$install_dir"
-	ynh_use_nodejs
-	NODE_ENV=production $ynh_npm install
+pushd $install_dir
+ 	ynh_use_nodejs
+	ynh_exec_warn_less sudo -u $app env $ynh_node_load_PATH $ynh_npm install
 popd
 
 #=================================================
@@ -58,41 +70,12 @@ chmod 400 "$install_dir/config.production.js"
 chown $app:$app "$install_dir/config.production.js"
 
 #=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression --message="Configuring a systemd service..."
-
-# Create a dedicated systemd config
-ynh_add_systemd_config
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression --message="Configuring log rotation..."
-
-mkdir -p /var/log/$app
-touch /var/log/$app/$app.log
-chown $app -R /var/log/$app
-
-# Use logrotate to manage application logfile(s)
-ynh_use_logrotate
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
-
-yunohost service add $app --log="/var/log/$app/$app.log"
-
-#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start"
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
