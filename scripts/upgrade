@@ -10,6 +10,13 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# LOAD SETTINGS
+#=================================================
+ynh_script_progression --message="Loading installation settings..."
+
+password=$(ynh_app_setting_get --app=$app --key=password)
+
+#=================================================
 # CHECK VERSION
 #=================================================
 
