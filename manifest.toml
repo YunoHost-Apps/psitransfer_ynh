@@ -1,9 +1,9 @@
 packaging_format = 2
 
 id = "psitransfer"
-name = "PSITransfer"
-description.en = "Transfer files or images without problem"
-description.fr = "Transférer des fichiers sans soucis"
+name = "PsiTransfer"
+description.en = "Simple file sharing solution"
+description.fr = "Solution simple de partage de fichiers"
 
 version = "2.1.2~ynh1"
 
