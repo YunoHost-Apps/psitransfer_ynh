@@ -33,7 +33,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 
 ## Captures d’écran
 
-![Capture d’écran de PSITransfer](./doc/screenshots/psitransfer.gif)
+![Capture d’écran de PSITransfer](./doc/screenshots/screenshot.png)
 
 ## Documentations et ressources
 
