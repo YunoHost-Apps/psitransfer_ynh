@@ -16,17 +16,17 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Simple open source self-hosted file sharing solution. It's an alternative to paid services like Dropbox, WeTransfer.
+Solution simple de partage de fichiers auto-hébergée open source. PsiTransfer est une alternative aux services payants comme Dropbox, WeTransfer.
 
-### Features:
+### Caractéristiques:
 
-- No accounts, no logins
-- Mobile friendly responsive interface
-- Resumable up- and downloads ([tus.io](https://tus.io))
-- Set an expire-time for your upload bucket
-- Download all files as zip/tar.gz archive
-- Password protected download list ([AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard))
-- `/admin` Page lists bucket information, [Screenshot](https://raw.githubusercontent.com/psi-4ward/psitransfer/master/docs/PsiTransfer-Admin.png) (_disabled until you set `adminPass` config value_)
+- Pas de compte, pas de connexion
+- Interface réactive adaptée aux mobiles
+- Mises à jour et téléchargements pouvant être repris ([tus.io](https://tus.io))
+- Définissez une heure d'expiration pour votre bucket de téléchargement
+- Téléchargez tous les fichiers sous forme d'archive zip/tar.gz
+- Liste de téléchargement protégée par mot de passe ([AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard))
+- La page `/admin` répertorie les informations sur le compartiment (_disabled jusqu'à ce que vous définissiez la valeur de configuration `adminPass`_)
 
 
 **Version incluse :** 2.1.2~ynh1
