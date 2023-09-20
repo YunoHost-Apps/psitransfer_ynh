@@ -6,7 +6,7 @@
         "en": "Transfer files or images without problem",
 	      "fr": "Transférer des fichiers sans soucis"
     },
-    "version": "1.12.0~ynh1",
+    "version": "2.1.2~ynh1",
     "url": "https://psi.cx/tags/PsiTransfer/",
     "upstream": {
         "license": "BSD-2-Clause",
@@ -21,7 +21,7 @@
         "url": "https://github.com/frju365/psitransfer_ynh"
     },
     "requirements": {
-        "yunohost": ">= 4.3.0"
+        "yunohost": ">= 11.2"
     },
     "multi_instance": true,
     "services": [
