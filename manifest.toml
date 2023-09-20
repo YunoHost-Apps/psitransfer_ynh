@@ -40,7 +40,6 @@ ram.runtime = "50M"
         [resources.sources.main]
         url = "https://github.com/psi-4ward/psitransfer/releases/download/v2.1.2/psitransfer-v2.1.2.tar.gz"
         sha256 = "cf960dcb2fc5cd6911397373e91b9237afd95fe34d4ad8270bfab7c2b2218459"
-        in_subdir = false
         autoupdate.strategy = "latest_github_tag"
 
     [resources.ports]
