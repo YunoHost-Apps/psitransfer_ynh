@@ -1,6 +1,6 @@
 Solution simple de partage de fichiers auto-hébergée open source. PsiTransfer est une alternative aux services payants comme Dropbox, WeTransfer.
 
-### Caractéristiques:
+### Caractéristiques :
 
 - Pas de compte, pas de connexion
 - Interface réactive adaptée aux mobiles

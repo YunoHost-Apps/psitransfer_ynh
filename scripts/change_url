@@ -39,8 +39,8 @@ ynh_change_url_nginx_config
 #=================================================
 ynh_script_progression --message="Updating a configuration file..."
 
-domain=$new_domain
-path=$new_path
+#domain=$new_domain
+#path=$new_path
 
 ynh_add_config --template="../conf/config.production.js" --destination="$install_dir/config.production.js"
 

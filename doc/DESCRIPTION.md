@@ -2,7 +2,6 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 
 ### Features:
 
-- No accounts, no logins
 - Mobile friendly responsive interface
 - Resumable up- and downloads ([tus.io](https://tus.io))
 - Set an expire-time for your upload bucket
