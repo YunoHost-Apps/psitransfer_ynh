@@ -28,7 +28,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 - `/admin` Page lists bucket information (_disabled until you set `adminPass` config value_)
 
 
-**Shipped version:** 2.1.2~ynh1
+**Shipped version:** 2.1.2~ynh2
 
 ## Screenshots
 
