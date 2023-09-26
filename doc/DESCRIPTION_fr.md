@@ -2,7 +2,6 @@ Solution simple de partage de fichiers auto-hébergée open source. PsiTransfer 
 
 ### Caractéristiques :
 
-- Pas de compte, pas de connexion
 - Interface réactive adaptée aux mobiles
 - Mises à jour et téléchargements pouvant être repris ([tus.io](https://tus.io))
 - Définissez une heure d'expiration pour votre bucket de téléchargement
