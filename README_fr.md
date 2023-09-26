@@ -29,7 +29,7 @@ Solution simple de partage de fichiers auto-hébergée open source. PsiTransfer 
 - La page `/admin` répertorie les informations sur le compartiment (_disabled jusqu'à ce que vous définissiez la valeur de configuration `adminPass`_)
 
 
-**Version incluse :** 2.1.2~ynh1
+**Version incluse :** 2.1.2~ynh2
 
 ## Captures d’écran
 
