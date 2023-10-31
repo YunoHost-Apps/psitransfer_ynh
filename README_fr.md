@@ -39,7 +39,7 @@ Solution simple de partage de fichiers auto-hébergée open source. PsiTransfer 
 * Site officiel de l’app : <https://psi.cx/tags/PsiTransfer>
 * Documentation officielle de l’admin : <https://github.com/psi-4ward/psitransfer/tree/master/docs>
 * Dépôt de code officiel de l’app : <https://github.com/psi-4ward/psitransfer>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_psitransfer>
+* YunoHost Store: <https://apps.yunohost.org/app/psitransfer>
 * Signaler un bug : <https://github.com/YunoHost-Apps/psitransfer_ynh/issues>
 
 ## Informations pour les développeurs

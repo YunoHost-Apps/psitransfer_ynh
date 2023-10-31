@@ -39,7 +39,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 * Official app website: <https://psi.cx/tags/PsiTransfer>
 * Official admin documentation: <https://github.com/psi-4ward/psitransfer/tree/master/docs>
 * Upstream app code repository: <https://github.com/psi-4ward/psitransfer>
-* YunoHost documentation for this app: <https://yunohost.org/app_psitransfer>
+* YunoHost Store: <https://apps.yunohost.org/app/psitransfer>
 * Report a bug: <https://github.com/YunoHost-Apps/psitransfer_ynh/issues>
 
 ## Developer info
