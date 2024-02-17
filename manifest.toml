@@ -5,7 +5,7 @@ name = "PsiTransfer"
 description.en = "Simple file sharing solution"
 description.fr = "Solution simple de partage de fichiers"
 
-version = "v2.1.2~ynh1"
+version = "2.1.2~ynh1"
 
 maintainers = [""]
 
