@@ -5,7 +5,7 @@ name = "PsiTransfer"
 description.en = "Simple file sharing solution"
 description.fr = "Solution simple de partage de fichiers"
 
-version = "2.1.2~ynh2"
+version = "v2.1.2~ynh1"
 
 maintainers = [""]
 
@@ -47,8 +47,8 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/psi-4ward/psitransfer/releases/download/v2.1.2/psitransfer-v2.1.2.tar.gz"
-        sha256 = "cf960dcb2fc5cd6911397373e91b9237afd95fe34d4ad8270bfab7c2b2218459"
+        url = "https://github.com/psi-4ward/psitransfer/archive/refs/tags/v2.1.2.tar.gz"
+        sha256 = "0c66374d91b1ce00454f368f7426b46bc09ec33622da71201915091ebc60f709"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.ports]
