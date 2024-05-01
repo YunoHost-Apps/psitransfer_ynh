@@ -7,7 +7,7 @@ description.fr = "Solution simple de partage de fichiers"
 
 version = "2.1.2~ynh3"
 
-maintainers = [""]
+maintainers = []
 
 [upstream]
 license = "BSD-2-Clause"
