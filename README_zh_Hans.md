@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 PsiTransfer
+# YunoHost 上的 PsiTransfer
 
 [![集成程度](https://dash.yunohost.org/integration/psitransfer.svg)](https://dash.yunohost.org/appci/app/psitransfer) ![工作状态](https://ci-apps.yunohost.org/ci/badges/psitransfer.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/psitransfer.maintain.svg)
 
@@ -28,7 +28,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 - `/admin` Page lists bucket information (_disabled until you set `adminPass` config value_)
 
 
-**分发版本：** 2.1.2~ynh3
+**分发版本：** 2.2.0~ynh1
 
 ## 截图
 
