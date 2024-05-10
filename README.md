@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install PsiTransfer with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=psitransfer)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install PsiTransfer quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -28,7 +28,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 - `/admin` Page lists bucket information (_disabled until you set `adminPass` config value_)
 
 
-**Shipped version:** 2.1.2~ynh3
+**Shipped version:** 2.2.0~ynh1
 
 ## Screenshots
 
