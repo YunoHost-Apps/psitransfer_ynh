@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -14,43 +8,42 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 password=$YNH_APP_ARG_PASSWORD
-ynh_app_setting_set --app=$app --key=password --value=$password
+ynh_app_setting_set --key=password --value=$password
 
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=1
+ynh_script_progression "Installing dependencies..."
 
-ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_nodejs_install
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
-chmod -R o-rwx "$install_dir"
-chown -R $app:$app "$install_dir"
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:$app "$install_dir"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
+ynh_script_progression "Adding system configurations related to $app..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 # Create a dedicated systemd config
-ynh_add_systemd_config
+ynh_config_add_systemd
 
 mkdir -p /var/log/$app
 touch /var/log/$app/$app.log
-chown $app -R /var/log/$app
+#REMOVEME? Assuming ynh_config_add_logrotate is called, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app -R /var/log/$app
 
 # Use logrotate to manage application logfile(s)
-ynh_use_logrotate
+ynh_config_add_logrotate
 
 yunohost service add $app --description="Transfer files or images" --log="/var/log/$app/$app.log"
 
@@ -59,33 +52,33 @@ yunohost service add $app --description="Transfer files or images" --log="/var/l
 #=================================================
 # INSTALL APP
 #=================================================
-ynh_script_progression --message="Installing $app..." --weight=1
+ynh_script_progression "Installing $app..."
 
 pushd $install_dir
- 	ynh_use_nodejs
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm install --production
+
+	ynh_hide_warnings ynh_exec_as_app node_load_PATH npm install --production
 popd
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
+ynh_script_progression "Adding $app's configuration..."
 
-ynh_add_config --template="../conf/config.production.js" --destination="$install_dir/config.production.js"
+ynh_config_add --template="config.production.js" --destination="$install_dir/config.production.js"
 
-chmod 400 "$install_dir/config.production.js"
-chown $app:$app "$install_dir/config.production.js"
+#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 400 "$install_dir/config.production.js"
+#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app:$app "$install_dir/config.production.js"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd"
+ynh_systemctl --service=$app --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
