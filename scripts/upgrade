@@ -20,18 +20,10 @@ ynh_systemctl --service=$app --action="stop" --log_path="systemd"
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
+ynh_script_progression "Upgrading source files..."
 
-# FIXME: this is still supported but the recommendation is now to *always* re-setup the app sources wether or not the upstream sources changed
-if ynh_app_upstream_version_changed
-then
-	ynh_script_progression "Upgrading source files..."
+ynh_setup_source --dest_dir="$install_dir" --keep="config.production.js"
 
-	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$install_dir" --keep="config.production.js"
-fi
-
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:$app "$install_dir"
 #=================================================
 # SETUP SYSTEMD
 #=================================================
@@ -39,26 +31,13 @@ ynh_script_progression "Upgrading systemd configuration..."
 
 ynh_nodejs_install
 
-# Create a dedicated systemd config
+ynh_config_add_nginx
+
 ynh_config_add_systemd
 
-# Use logrotate to manage app-specific logfile(s)
 ynh_config_add_logrotate
 
 yunohost service add $app --description="Transfer files or images" --log="/var/log/$app/$app.log"
-
-# Create a dedicated NGINX config
-ynh_config_add_nginx
-
-#=================================================
-# UPGRADE APP
-#=================================================
-ynh_script_progression "Upgrading $app..."
-
-pushd "$install_dir"
-
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH npm install --production
-popd
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -67,8 +46,14 @@ popd
 
 #ynh_config_add --template="config.production.js" --destination="$install_dir/config.production.js"
 
-##REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 400 "$install_dir/config.production.js"
-##REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app:$app "$install_dir/config.production.js"
+#=================================================
+# UPGRADE APP
+#=================================================
+ynh_script_progression "Upgrading $app..."
+
+pushd "$install_dir"
+	ynh_hide_warnings ynh_exec_as_app npm install --production
+popd
 
 #=================================================
 # START SYSTEMD SERVICE
