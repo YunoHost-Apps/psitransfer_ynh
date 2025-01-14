@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # PsiTransfer para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/psitransfer.svg)](https://dash.yunohost.org/appci/app/psitransfer) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/psitransfer.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/psitransfer.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/psitransfer)](https://ci-apps.yunohost.org/ci/apps/psitransfer/)
+![Estado funcional](https://apps.yunohost.org/badge/state/psitransfer)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/psitransfer)
 
 [![Instalar PsiTransfer con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=psitransfer)
 
@@ -28,7 +30,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 - `/admin` Page lists bucket information (_disabled until you set `adminPass` config value_)
 
 
-**Versión actual:** 2.2.0~ynh1
+**Versión actual:** 2.2.0~ynh2
 
 ## Capturas
 
@@ -44,7 +46,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/psitransfer_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/psitransfer_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
