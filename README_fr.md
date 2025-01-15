@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # PsiTransfer pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/psitransfer.svg)](https://dash.yunohost.org/appci/app/psitransfer) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/psitransfer.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/psitransfer.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/psitransfer)](https://ci-apps.yunohost.org/ci/apps/psitransfer/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/psitransfer)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/psitransfer)
 
 [![Installer PsiTransfer avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=psitransfer)
 
@@ -28,7 +30,7 @@ Solution simple de partage de fichiers auto-hébergée open source. PsiTransfer 
 - La page `/admin` répertorie les informations sur le compartiment (_disabled jusqu'à ce que vous définissiez la valeur de configuration `adminPass`_)
 
 
-**Version incluse :** 2.2.0~ynh1
+**Version incluse :** 2.2.0~ynh2
 
 ## Captures d’écran
 

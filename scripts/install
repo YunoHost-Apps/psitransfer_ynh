@@ -60,9 +60,15 @@ yunohost service add $app --description="Transfer files or images" --log="/var/l
 # INSTALL APP
 #=================================================
 ynh_script_progression --message="Installing $app..." --weight=1
+ 
+ynh_use_nodejs
+
+pushd $install_dir/app
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm install
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm run build
+popd
 
 pushd $install_dir
- 	ynh_use_nodejs
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm install --production
 popd
 
