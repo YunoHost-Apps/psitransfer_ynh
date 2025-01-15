@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # PsiTransfer para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/psitransfer.svg)](https://dash.yunohost.org/appci/app/psitransfer) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/psitransfer.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/psitransfer.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/psitransfer)](https://ci-apps.yunohost.org/ci/apps/psitransfer/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/psitransfer)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/psitransfer)
 
 [![Instalar PsiTransfer con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=psitransfer)
 
@@ -28,7 +30,7 @@ Simple open source self-hosted file sharing solution. It's an alternative to pai
 - `/admin` Page lists bucket information (_disabled until you set `adminPass` config value_)
 
 
-**Versión proporcionada:** 2.2.0~ynh1
+**Versión proporcionada:** 2.2.0~ynh2
 
 ## Capturas de pantalla
 
