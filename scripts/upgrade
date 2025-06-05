@@ -49,9 +49,16 @@ yunohost service add $app --description="Transfer files or images" --log="/var/l
 #=================================================
 # UPGRADE APP
 #=================================================
-ynh_script_progression "Upgrading $app..."
+ynh_script_progression --message="Upgrading $app..." --weight=1
 
-pushd "$install_dir"
+ynh_use_nodejs
+
+pushd $install_dir/app
+	ynh_hide_warnings ynh_exec_as_app npm install
+	ynh_hide_warnings ynh_exec_as_app npm run build
+popd
+
+pushd $install_dir
 	ynh_hide_warnings ynh_exec_as_app npm install --production
 popd
 
