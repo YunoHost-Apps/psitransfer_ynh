@@ -11,6 +11,13 @@ ynh_script_progression "Loading installation settings..."
 password=$(ynh_app_setting_get --key=password)
 
 #=================================================
+# INSTALL DEPENDENCIES
+#=================================================
+ynh_script_progression "Installing dependencies..."
+
+ynh_nodejs_install
+
+#=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
@@ -49,9 +56,7 @@ yunohost service add $app --description="Transfer files or images" --log="/var/l
 #=================================================
 # UPGRADE APP
 #=================================================
-ynh_script_progression --message="Upgrading $app..." --weight=1
-
-ynh_use_nodejs
+ynh_script_progression "Upgrading $app..."
 
 pushd $install_dir/app
 	ynh_hide_warnings ynh_exec_as_app npm install

@@ -51,8 +51,6 @@ ynh_config_add --template="config.production.js" --destination="$install_dir/con
 # INSTALL APP
 #=================================================
 ynh_script_progression "Installing $app..."
- 
-ynh_use_nodejs
 
 pushd $install_dir/app
 	ynh_hide_warnings ynh_exec_as_app npm install
