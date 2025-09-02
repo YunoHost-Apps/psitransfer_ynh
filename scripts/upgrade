@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source _common.sh
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -15,7 +15,7 @@ password=$(ynh_app_setting_get --key=password)
 #=================================================
 ynh_script_progression "Installing dependencies..."
 
-ynh_nodejs_install
+#REMOVEME? ynh_nodejs_install
 
 #=================================================
 # STOP SYSTEMD SERVICE
@@ -36,7 +36,7 @@ ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.product
 #=================================================
 ynh_script_progression "Upgrading systemd configuration..."
 
-ynh_nodejs_install
+#REMOVEME? ynh_nodejs_install
 
 ynh_config_add_nginx
 
