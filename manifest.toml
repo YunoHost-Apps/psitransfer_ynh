@@ -24,9 +24,9 @@ multi_instance = true
 ldap = false
 sso = false
 
-disk = "50M"
-ram.build = "1000M"
-ram.runtime = "50M"
+disk = "350M"
+ram.build = "600M"
+ram.runtime = "150M"
 
 [install]
     [install.domain]
@@ -39,6 +39,13 @@ ram.runtime = "50M"
     [install.init_main_permission]
     type = "group"
     default = "visitors"
+
+    [install.language]
+    ask.en = "Choose the application language"
+    ask.fr = "Choisissez la langue de l'application"
+    type = "select"
+    choices = ["de", "en", "es", "fr", "it", "nl", "pl", "pt", "ru", "zh"]
+    default = "fr"
 
     [install.password]
     help.en = "The password is used to allow access to uploads and admin panel."

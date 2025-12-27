@@ -9,6 +9,9 @@ ynh_script_progression "Loading installation settings..."
 
 password=$(ynh_app_setting_get --key=password)
 
+# If language doesn't exist, create it
+ynh_app_setting_set_default --key=language --value="fr"
+
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
@@ -39,9 +42,9 @@ yunohost service add $app --description="Transfer files or images" --log="/var/l
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-#ynh_script_progression "Updating configuration..."
+ynh_script_progression "Updating configuration..."
 
-#ynh_config_add --template="config.production.js" --destination="$install_dir/config.production.js"
+ynh_config_add --template="config.production.js" --destination="$install_dir/config.production.js"
 
 #=================================================
 # UPGRADE APP
