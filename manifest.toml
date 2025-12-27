@@ -47,8 +47,8 @@ ram.runtime = "50M"
     choices = ["de", "en", "es", "fr", "it", "nl", "pl", "pt", "ru", "zh"]
     default = "fr"
 
-    [install.admin]
-    type = "user"
+    #[install.admin]
+    #type = "user"
 
     [install.password]
     help.en = "The password is used to allow access to uploads and admin panel."
