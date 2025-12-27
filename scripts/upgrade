@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -11,18 +10,11 @@ ynh_script_progression "Loading installation settings..."
 password=$(ynh_app_setting_get --key=password)
 
 #=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-ynh_script_progression "Installing dependencies..."
-
-#REMOVEME? ynh_nodejs_install
-
-#=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemctl --service=$app --action="stop" --log_path="systemd"
+ynh_systemctl --service=$app --action="stop"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -35,8 +27,6 @@ ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.product
 # SETUP SYSTEMD
 #=================================================
 ynh_script_progression "Upgrading systemd configuration..."
-
-#REMOVEME? ynh_nodejs_install
 
 ynh_config_add_nginx
 
@@ -72,7 +62,7 @@ popd
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start" --log_path="systemd"
+ynh_systemctl --service=$app --action="start"
 
 #=================================================
 # END OF SCRIPT
