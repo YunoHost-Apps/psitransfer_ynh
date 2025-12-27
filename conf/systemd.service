@@ -10,7 +10,6 @@ Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 Environment="PATH=__PATH_WITH_NODEJS__"
 Environment="NODE_ENV=production"
-Environment="PSITRANSFER_PORT=__PORT__"
 ExecStart=__NODEJS_DIR__/node app.js
 StandardOutput=append:/var/log/__APP__/__APP__.log
 Restart=on-failure
