@@ -41,7 +41,7 @@ module.exports = {
   // expire every file after maxAge (eg never downloaded one-time files)
   "maxAge": 3600 * 24 * 75, // 75 days
   // maximum file-size for previews in byte
-  "maxPreviewSize": Math.pow(2, 20) * 2, // 2MB
+  "maxPreviewSize": Math.pow(2, 20) * 5, // 5MB
   "mailTemplate": 'mailto:?subject=File Transfer&body=Vous pouvez télécharger les fichiers ici : %%URL%%',
   "mailFrom": "PsiTransfer <psitransfer@__DOMAIN__>",
   // see https://github.com/expressjs/morgan
