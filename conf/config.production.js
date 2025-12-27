@@ -18,37 +18,10 @@ module.exports = {
   "uploadDir": '__DATA_DIR__',
   "port": __PORT__,
   "uploadAppPath": '/',
-  "mailFrom": "PsiTransfer <psitransfer@__DOMAIN__>"
+  // "maxFileSize": Math.pow(2, 20) * 15,
+  // "maxBucketSize": Math.pow(2, 20) * 20,
+  "mailFrom": "PsiTransfer <psitransfer@__DOMAIN__>",
   // "sslKeyFile": './tmp/cert.key',
   // "sslCertFile": './tmp/cert.pem',
-  // admin password, set to false to disable /admin page
-  // to enable /admin page set your password like this:
-  // "adminPass": "YourSecurePassword",
-  "adminPass": false,
-  // upload password, set to false to disable
-  "uploadPass": false,
-  // make the bucket-password field mandatory
-  "requireBucketPassword": false,
-  "defaultRetention": "604800",
-  // expire every file after maxAge (eg never downloaded one-time files)
-  "maxAge": 3600 * 24 * 75, // 75 days
-  // maximum file-size for previews in byte
-  "maxPreviewSize": Math.pow(2, 20) * 2, // 2MB
   "mailTemplate": 'mailto:?subject=File Transfer&body=Vous pouvez télécharger les fichiers ici : %%URL%%',
-  // see https://github.com/expressjs/morgan
-  // set to false to disable logging
-  "accessLog": ':date[iso] :method :url :status :response-time :remote-addr',
-  // event webhooks
-  // invokes an HTTP POST to a url whenever a file is downloaded
-  // for more info, see the webhooks section of docs/configuration.md
-  "fileDownloadedWebhook": null,
-  "fileUploadedWebhook": null,
-  // Fallback language
-  "defaultLanguage": "en",
-  // Limit upload size
-  "maxFileSize": null, // Math.pow(2, 30) * 2, // 2GB
-  "maxBucketSize": null, // Math.pow(2, 30) * 2, // 10GB
-  "plugins": ['file-downloaded-webhook', 'file-uploaded-webhook'],
-  // Disable the QR code button for download url sharing, set to true to disable
-  "disableQrCode": false,
 };
