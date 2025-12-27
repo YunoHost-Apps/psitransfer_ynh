@@ -16,7 +16,7 @@ admindoc = "https://github.com/psi-4ward/psitransfer/tree/master/docs"
 code = "https://github.com/psi-4ward/psitransfer"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -61,3 +61,6 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
+
+    [resources.nodejs]
+    version = "22"
