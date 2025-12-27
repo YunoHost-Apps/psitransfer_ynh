@@ -1,7 +1,6 @@
 [Unit]
 Description=PsiTranfer: file sharing solution
 Documentation=https://github.com/psi-4ward/psitransfer
-After=syslog.target
 After=network.target
 
 [Service]
@@ -13,7 +12,7 @@ Environment="PATH=__PATH_WITH_NODEJS__"
 Environment="NODE_ENV=production"
 ExecStart=__NODEJS_DIR__/node app.js
 StandardOutput=append:/var/log/__APP__/__APP__.log
-Restart=always
+Restart=on-failure
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these
