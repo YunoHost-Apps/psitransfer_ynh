@@ -34,7 +34,7 @@ module.exports = {
   "maxAge": 3600 * 24 * 75, // 75 days
   // maximum file-size for previews in byte
   "maxPreviewSize": Math.pow(2, 20) * 2, // 2MB
-  "mailTemplate": 'mailto:?subject=File Transfer&body=You can download the files here: %%URL%%',
+  "mailTemplate": 'mailto:?subject=File Transfer&body=Vous pouvez télécharger les fichiers ici : %%URL%%',
   // see https://github.com/expressjs/morgan
   // set to false to disable logging
   "accessLog": ':date[iso] :method :url :status :response-time :remote-addr',
