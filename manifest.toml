@@ -55,7 +55,7 @@ ram.runtime = "150M"
 [resources]
         [resources.sources.main]
         url = "https://github.com/psi-4ward/psitransfer/archive/refs/tags/v2.3.1.tar.gz"
-        sha256 = "512cad46daa7cee5986110762f0c3ab1d3e56a2446860952e05bd2783953327c"
+        sha256 = "c038894d8d28a6c22fd0d0d69241a29f37278884417d289a44c99660af29a66a"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.ports]
