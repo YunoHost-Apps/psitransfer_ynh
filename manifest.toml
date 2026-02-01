@@ -5,7 +5,7 @@ name = "PsiTransfer"
 description.en = "Simple file sharing solution"
 description.fr = "Solution simple de partage de fichiers"
 
-version = "2.3.2~ynh1"
+version = "2.4.0~ynh1"
 
 maintainers = []
 
@@ -16,7 +16,7 @@ admindoc = "https://github.com/psi-4ward/psitransfer/tree/master/docs"
 code = "https://github.com/psi-4ward/psitransfer"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -54,8 +54,8 @@ ram.runtime = "150M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/psi-4ward/psitransfer/archive/refs/tags/v2.3.2.tar.gz"
-        sha256 = "831819094bc15f56ffee087609611e2752117b48091f48e71373dfd70e281877"
+        url = "https://github.com/psi-4ward/psitransfer/archive/refs/tags/v2.4.0.tar.gz"
+        sha256 = "91a45a2144d97493edd6be306b90811493772e7f8c36d0a39ce59d65e1fc3b40"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.ports]
